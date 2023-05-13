@@ -38,7 +38,6 @@ var (
 	lastCheck  string
 	output     string
 	outputTemp string
-	textChan   = make(chan string)
 	count      int
 	checked    int
 )
@@ -64,23 +63,6 @@ func MustReadBody(resp *http.Response, err error) []byte {
 	return body
 }
 
-func textAppender() {
-	//f, err := os.OpenFile("output.txt", os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
-	f, err := os.Create("output.txt")
-	if err != nil {
-		fmt.Println("Error opening file:", err)
-		return
-	}
-	defer f.Close()
-	for text := range textChan {
-		_, err := f.WriteString(text + "\n")
-		if err != nil {
-			fmt.Println("Error writing to file:", err)
-			return
-		}
-		outputTemp += text + "\r\n"
-	}
-}
 func init() {
 	go func() {
 
@@ -111,7 +93,6 @@ func main() {
 
 	for {
 
-		textChan = make(chan string)
 		outputTemp = ""
 		println("Fetching...", Cyan)
 
@@ -129,7 +110,6 @@ func main() {
 		CLIENTs := readProxies(ar)
 		println(fmt.Sprintf("%d Proxy has been Scrapped, %d is duplicated", len(CLIENTs), a-len(CLIENTs)), Cyan)
 		CLIENTsChan := make(chan CLIENT)
-		go textAppender()
 		threadsCount := Config.ThreadsCount
 		println(fmt.Sprintf("Threads Count: %d", threadsCount), Cyan)
 		var wg = new(sync.WaitGroup)
@@ -142,8 +122,16 @@ func main() {
 		}
 		close(CLIENTsChan)
 		wg.Wait()
-		close(textChan)
+
 		output = outputTemp
+
+		//saving
+		file, err := os.Create("output.txt")
+		if err != nil {
+			fmt.Println("Error when creating output.txt file")
+		}
+		file.WriteString(output)
+		file.Close()
 		lastCheck = now()
 		fmt.Println("\rDone.            ")
 	}
@@ -152,7 +140,7 @@ func main() {
 func worker(expectedSum1, expectedSum2 string, c chan CLIENT, wg *sync.WaitGroup) {
 	for c := range c {
 		if checkProxy(expectedSum1, expectedSum2, c.client) {
-			textChan <- c.address
+			outputTemp += c.address + "\r\n"
 			checked++
 			fmt.Printf("\r[%d/%d]", checked, count)
 		} else {
