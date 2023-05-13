@@ -5,8 +5,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	"old/github.com/tidwall/gjson"
 	"strings"
+
+	"github.com/tidwall/gjson"
 )
 
 func fetchRaw(u string) (result []string) {
