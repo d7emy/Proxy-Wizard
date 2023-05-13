@@ -1,0 +1,58 @@
+threadsCount: 125
+urllerThreadsCount: 15
+proxy:
+  useproxy: false #to use it in blocked proxies websites
+  forceuse: false #will use it also in github and non proxies websites
+  url: 
+urls:
+  - url: https://proxylist.geonode.com/api/proxy-list?limit=500&page=1&sort_by=lastChecked&sort_type=desc&protocols=http,https
+    to_array: data
+    ip_json: ip
+    port_json: port
+  - url: https://openproxy.space/list/http
+    autoRegex: true
+  - url: https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all
+  - url: https://raw.githubusercontent.com/jetkai/proxy-list/main/archive/txt/proxies-http.txt
+  - url: https://raw.githubusercontent.com/jetkai/proxy-list/main/archive/txt/proxies-https.txt
+  - url: https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt
+  - url: https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-https.txt
+  - url: https://multiproxy.org/txt_all/proxy.txt
+  - url: https://raw.githubusercontent.com/Fl3t/NitroGenerator/master/discord/proxys.txt
+  - url: https://raw.githubusercontent.com/Go0p/emmmm/master/data/Proxy_pool/proxy_pool.txt
+  - url: https://raw.githubusercontent.com/MITSUKI-IID/IG-FREE/main/Data/proxy2.txt
+  - url: https://raw.githubusercontent.com/Nem4/viewerbot/master/Proxies_txt/good_proxy.txt
+  - url: https://raw.githubusercontent.com/ShenXuGongZi/FanHaoSearch/master/Win_Client/proxy_list.txt
+  - url: https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt
+  - url: https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt
+  - url: https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt
+  - url: https://raw.githubusercontent.com/almroot/proxylist/master/list.txt
+  - url: https://raw.githubusercontent.com/clarketm/proxy-list/master/proxy-list-raw.txt
+  - url: https://raw.githubusercontent.com/coder-pig/ReptileSomething/master/proxy_ip.txt
+  - url: https://raw.githubusercontent.com/hendrikbgr/Free-Proxy-Repo/master/proxy_list.txt
+  - url: https://raw.githubusercontent.com/hktalent/myhktools/master/proxy/autoProxy.txt
+  - url: https://raw.githubusercontent.com/jorgenkg/python-proxy-rotator/master/proxy/proxylist.txt
+  - url: https://raw.githubusercontent.com/metaotao/doubanbook/master/file/proxyip.txt
+  - url: https://raw.githubusercontent.com/mmpx12/proxy-list/master/https.txt
+  - url: https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt
+  - url: https://raw.githubusercontent.com/monosans/proxy-list/main/proxies_anonymous/http.txt
+  - url: https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http.txt
+  - url: https://raw.githubusercontent.com/proxy4parsing/proxy-list/main/http_old.txt
+  - url: https://raw.githubusercontent.com/redtrib3/Brutal-FX/master/Proxy-List.txt
+  - url: https://raw.githubusercontent.com/roosterkid/openproxylist/main/HTTPS_RAW.txt
+  - url: https://raw.githubusercontent.com/sunny9577/proxy-scraper/master/proxies.txt
+  - url: https://raw.githubusercontent.com/ysc/superword/master/src/main/resources/proxy_ips.txt
+  - url: https://raw.githubusercontent.com/zeynoxwashere/proxy-list/main/http.txt
+  - url: https://raw.githubusercontent.com/caliphdev/Proxy-List/master/http.txt
+  - url: https://raw.githubusercontent.com/ToShukKr/rProxyList/main/proxy-list.txt
+  - url: https://raw.githubusercontent.com/prxchk/proxy-list/main/http.txt
+  - url: https://raw.githubusercontent.com/Bardiafa/Proxy-Leecher/main/good.txt
+  - url: https://raw.githubusercontent.com/caliwyr/Proxy-List/main/http.txt
+  - url: https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/http.txt
+  - url: https://raw.githubusercontent.com/ALIILAPRO/Proxy/main/http.txt
+  - url: https://raw.githubusercontent.com/mertguvencli/http-proxy-list/main/proxy-list/data.txt
+  - url: https://raw.githubusercontent.com/tahaluindo/Free-Proxies/main/proxies/all.txt
+  - url: https://raw.githubusercontent.com/UptimerBot/proxy-list/master/proxies/http.txt
+  - url: https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/https.txt
+  - url: https://raw.githubusercontent.com/Zaeem20/FREE_PROXIES_LIST/master/http.txt
+  - url: https://raw.githubusercontent.com/parserpp/ip_ports/main/proxyinfo.txt
+  - url: https://raw.githubusercontent.com/saisuiu/Lionkings-Http-Proxys-Proxies/main/awkpro2.txt
