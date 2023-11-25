@@ -1,5 +1,5 @@
 # Proxy-Wizard
- Proxy-Wizard is a Go program that fetches and tests proxies, and provides an API to access the working proxies.
+ Proxy-Wizard is a Go script that fetches and tests proxies, and provides an API to access the working proxies.
  Free proxy list in output.txt updated every minute.
 ## Installation
  - Ensure that Go is installed on your system. If it isn't, you can download it from [here](https://golang.org/dl/).
